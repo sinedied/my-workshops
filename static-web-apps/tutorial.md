@@ -23,9 +23,7 @@ To do this workshop, you will need:
 * A Microsoft Azure account
 * [A GitHub account](http://github.com/)
 * [Visual Studio Code](https://code.visualstudio.com/) (VSCode)
-* [Node.js 12 or 14 installed](https://nodejs.org/)
-* Docker (optional)
-* [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v3%2Clinux%2Ccsharp%2Cportal%2Cbash%2Ckeda#v2&ocid=OCID&wt.mc_id=WTMCID) (V3)
+* [Node.js 14 or 16 installed](https://nodejs.org/)
 
 --sep--
 ---
@@ -97,37 +95,6 @@ Choose your path
 </div>
 
 You now have your baseline project. Open the `swa-workshop` folder in VSCode.
-
---sep--
----
-title: [OPTIONAL] Setup your environment using a container
----
-
-## [OPTIONAL] Setup your environment using a dev container
-
-**Note:** This step is optional. You can either use a container as described below, or install all the tools yourself as we walk through the workshop.
-
-There is not much you need to start working with `Azure Static Web Apps`. If you already have all the requirements listed at the begining of the workshop, you are good to go. We will see at each step what are the tools and the VSCode extensions you will need to install.
-
-However, if you don't want to install everything, or don't want to remember what is needed to build and deploy a Static Web App, we've got you covered.
-
-Open VSCode and search for the `Remote - Containers` extension in the extension panel on the left or go <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers&ocid=OCID&wt.mc_id=WTMCID" target="_blank">here</a> and click `Install`.
-
-The `Remote - Containers` extension lets you use a Docker container as a fully-featured development environment. The best part is that the extension comes with a list of containers already setup for you... including one for Static Web Apps.
-
-So, open the VSCode command panel using `Ctrl + Shift + p` and search for `Add Development Container Configuration Files...`. This will show you a list of pre-configured containers. Search for `Azure Static Web Apps` and hit Enter.
-
-![Add a Dev Container](media/dev-container.png)
-
-A a few files will be aded to your project with all the container configurations.
-
-You now need to reopen your project in the container. To do so, open the VSCode command panel and search for `Reopen in container`. Wait a few seconds until the docker image is ready and you are good to go. You now have all the tools installed to work with Static Web Apps.
-
-<div class="box info">
-<div>
-The Container Extension uses Docker. If you don't have Docker already installed on your computer, go to <a href="https://www.docker.com/get-started" target="_blank">https://www.docker.com/get-started</a> to download and install it.
-</div>
-</div>
 
 
 --sep--
@@ -778,7 +745,7 @@ Title: Conclusion
 
 ## Conclusion
 
-Congratulations, you've reach the end of this workshop!
+Congratulations, you've reached the end of this workshop!
 
 ## Solution
 

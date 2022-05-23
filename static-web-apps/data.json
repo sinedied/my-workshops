@@ -2,17 +2,28 @@
     "infos": {
         "title": "Azure Static Web Apps",
         "github": "https://github.com/tagazok/my-workshops",
-        "description": "This workshops will teach you how to develop an end to end web application with a frontend, a backend, a database and some user authentication using Azure Static Web Apps, Cosmos DB, VSCode and GitHub Actions!"
+        "description": "This workshop will teach you how to develop an end to end web application with a frontend, a backend, a database and some user authentication using Azure Static Web Apps, Cosmos DB, VSCode and GitHub Actions!"
     },
     "authors": [
         {
             "name": "Olivier Leplus",
             "url": "https://twitter.com/olivierleplus",
             "avatar": "olivier.png"
+        },
+        {
+            "name": "Yohan Lasorsa",
+            "url": "https://twitter.com/sinedied",
+            "avatar": "https://github.com/sinedied.png"
+        },
+        {
+            "name": "Wassim Chegham",
+            "url": "https://twitter.com/manekinekko",
+            "avatar": "https://github.com/manekinekko.png"
         }
     ],
     "tracking": {
-        "ocid": "AID123456789"
+        "ocid": "AID123456789",
+        "WT.mc_id": "javascript-0000-yolasors"
     },
     "resources": [
         {
@@ -21,7 +32,7 @@
             "link": "https://github.com/tagazok/my-workshops/raw/master/static-web-apps/data/swa-workshop.zip"
         },
         {
-            "label": "The Show me SWA video series",
+            "label": "Show Me SWA video series",
             "type": "fab fa-youtube",
             "link": "https://www.youtube.com/watch?v=w-tLZjO6XMc&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG"
         }
