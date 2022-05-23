@@ -218,14 +218,14 @@ swa start www --open
 A local web server will be started at <a href="http://localhost:4280" target="blank">http://localhost:4280</a> to run your app.
 
 <div class="box tip">
-<div>
-<div>
-Later on, you will need to add the option <code>--api-location api</code> to also start the Azure Functions API server. You'll be able to test your API at <a href="http://localhost:7071/api/tasks" tartet="_blank">http://localhost:7071/api/tasks</a>
-</div>
-<div>
-The CLI may take more time than usual to launch your Azure Functions, especially the first time as it may need to download the needed tools.
-</div>
-</div>
+  <div>
+    <div>
+    Later on, you will need to add the option <code>--api-location api</code> to also start the Azure Functions API server. You'll be able to test your API at <a href="http://localhost:7071/api/tasks" tartet="_blank">http://localhost:7071/api/tasks</a>
+    </div>
+    <div>
+    The CLI may take more time than usual to launch your Azure Functions, especially the first time as it may need to download the needed tools.
+    </div>
+  </div>
 </div>
 
 Congratulations, you now have everything you need to test your app on your computer! 🥳
