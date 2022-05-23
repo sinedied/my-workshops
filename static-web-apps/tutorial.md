@@ -65,37 +65,15 @@ title: Start with a website
 
 Once upon a time, there was a website that needed a place to live, be visible to the world and have a backend to be more interactive.
 
-There are two ways you can start using the project template for this workshop
-
-### From a GitHub Template
-
 Go to <a href="https://github.com/tagazok/swa-workshop" target="_blank">this GitHub repository</a> and click on `Use this template`. 
 
-![Add a Dev Container](media/githubtemplate.png)
+![Create from template](media/githubtemplate.png)
 
-You will be redirected to the repository creation page. Just enter a name for your new repository and click on `Create repository from template`.
+You will be redirected to the repository creation page. Enter a name for your new repository, set the repo visibility to `public` and click on `Create repository from template`.
 
-### From a zip file
-#### Download the website template
+Once the repository is created, clone it locally using git.
 
-Download the website from the resources tab in the sidebar or click <a href="https://github.com/tagazok/my-workshops/raw/master/static-web-apps/data/swa-workshop.zip" target="_blank">here</a>.
-
-#### Deploy your website on GitHub
-
-Azure Static Web Apps has been built to work with GitHub by default. So, the first thing you will do is create a new GitHub repository and push the source code you just downloaded.
-
-<div class="box assignment">
-<div>
-Choose your path
-<ul>
-<li>Create the repository from the GitHub Template</li>
-<li>Go to <a href="https://github.com/" target="_blank">Github.com</a>, create a new repository and push your code to it.</li>
-</ul>
-</div>
-</div>
-
-You now have your baseline project. Open the `swa-workshop` folder in VSCode.
-
+You now have your baseline project. Open your repository folder in VSCode.
 
 --sep--
 ---
@@ -133,7 +111,7 @@ As we mentioned at the begining of the workshop, our app will have a backend and
 
 Azure Static Web Apps can handle several well-known frontend frameworks and can "compile" your Angular, React or Hugo application before deploying them.
 
-In our case, we have a very simple JavaScript appliation which does not require anything to run. So, let's choose `Custom`.
+In our case, we have a very simple JavaScript application which does not require anything to run. So, let's choose `Custom`.
 * In the `App location`, enter the `/www` folder as this is where our frontend is.
 * In the `Api location`, enter the `/api` folder as this is where our backend is.
 * In the `Output`, enter the `/www` folder as your frontend does not need any build system to run.
@@ -199,7 +177,7 @@ In the Overview panel of your Static Web App, look for the `URL` parameter. This
 
 Open the link and you can see that your TODO list app has been deployed and is accessible to the world!
 
-Congratulations, you just deployed your first Static Web App on Azure! 🥳
+Congratulations, you deployed your first Static Web App on Azure! 🥳
 
 --sep--
 ---
@@ -234,26 +212,17 @@ The CLI offers many options, but in our case we want it to serve both our API lo
 In your terminal, type the following command to start your project:
 
 ```bash
-swa start ./www --api-location ./api
+swa start www --open
 ```
 
-This CLI gives you two urls:
-
-* <a href="http://localhost:4280" target="blank">http://localhost:4280</a> corresponding to your frontend.
-* <a href="http://localhost:7071/api/tasks" tartet="_blank">http://localhost:7071/api/tasks</a> corresonding to you API.
+A local web server will be started at <a href="http://localhost:4280" target="blank">http://localhost:4280</a> to run your app.
 
 <div class="box tip">
 <div>
-<div>
-The CLI may take more time than usual to launch your Azure Function, especially the first time. The default timeout is 30 seconds but you can increase it by using the <code>--devserver-timeout=60000</code> parameter
+Later on, you will need to add the option <code>--api-location api</code> to also start the Azure Functions API server. You'll be able to test your API at <a href="http://localhost:7071/api/tasks" tartet="_blank">http://localhost:7071/api/tasks</a>
 </div>
 <div>
-If you have an error like:
-<code>
-'func' is not recognized as an internal or external command
- </code>
-Don't hesitate to restart your IDE, Terminal or computer and verify by taping func in another terminal to see if you have correctly install <a href="https://docs.microsoft.com/fr-fr/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cportal%2Cbash%2Ckeda">Azure functions core tools</a>
-</div>
+The CLI may take more time than usual to launch your Azure Functions, especially the first time as it may need to download the needed tools.
 </div>
 </div>
 
@@ -276,7 +245,7 @@ Ever heard of Serverless or FaaS (Function as a Service)? Well, you get it, this
 
 ### Installation
 
-You can create an Azure Function from the <a href="https://portal.azure.com/?ocid=OCID">Azure portal</a> but let's be honest, it's so much easier to stay in VSCode and use the Azure Functions extension.
+You can create an Azure Function from the <a href="https://portal.azure.com/?ocid=OCID&wt.mc_id=WTMCID">Azure portal</a> but let's be honest, it's so much easier to stay in VSCode and use the Azure Functions extension.
 
 So, start by installing the Azure Function extension from VSCode.
 
@@ -306,7 +275,7 @@ If you want to learn more about the different authorization levels for Functions
 </div>
 </div>
 
-A Function scaffold will be created for you so you don't start with a blank project. Let's modify the scaffold for our needs.
+A function will be created for you so you don't start with a blank project. Let's modify the scaffold for our needs.
 
 Right now, we don't have a database to store our users or our tasks so let's use an array as a "fake" database.
 
@@ -434,7 +403,7 @@ The `userId` is unique and can be used to identify the user. We will use it late
 
 <div class="box assignment">
 <div>
-Complete the <code>getUser()</code> methor to retrieve the logged-in user information and display the username in the <code>&lt;div id=&quot;username&quot;&gt;&lt;/div&gt;</code> element located at the top left of your web page.
+Complete the <code>getUser()</code> method in `www/app.js` to retrieve the logged-in user information and display the username in the <code>&lt;div id=&quot;username&quot;&gt;&lt;/div&gt;</code> element located at the top left of your web page.
 </div>
 </div>
 
@@ -584,27 +553,27 @@ Let's focus on our existing Azure Function. We will see later how to create a Fu
 
 Right now, we just want to get our tasks from the database instead of the static JSON array we created earlier in our Fsunction.
 
-In VSCode, right click on your `tasks` collection and select `Create Document`. Copy and paste a task of the following json and make sure to replace the userId by the one of your logged in user. To find the userId, just log into your web application and navigate to `/.auth/me`
+In VSCode, right click on your `tasks` collection and select `Create Document`. Edit the generated document to includethe following json and make sure to replace the **userId** by the one of your logged in user. To find the userId, just log into your web application and navigate to `/.auth/me`
 
 ```json
 {
   "_id": {
-    "$oid": "AUTO-GENERATED"
+    "$oid": "<GENERATED_DO_NOT_REPLACE>"
   },
-  "userId": "YOUT-USER-ID",
+  "userId": "<YOUR_USER_ID>",
   "label": "Buy tomatoes",
   "status": "checked"
 }
 ```
 
-Do it again for the two following tasks
+Do it again for the two following tasks:
 
 ```json
 {
   "_id": {
-    "$oid": "AUTO-GENERATED"
+    "$oid": "<GENERATED_DO_NOT_REPLACE>"
   },
-  "userId": "YOUT-USER-ID",
+  "userId": "<YOUR_USER_ID>",
   "label": "Learn Azure",
   "status": ""
 }
@@ -613,16 +582,17 @@ Do it again for the two following tasks
 ```json
 {
   "_id": {
-    "$oid": "AUTO-GENERATED"
+    "$oid": "<GENERATED_DO_NOT_REPLACE>"
   },
-  "userId": "YOUT-USER-ID",
+  "userId": "<YOUR_USER_ID>",
   "label": "Go to space",
   "status": ""
 }
 ```
+
 ### Let's code
 
-Now that we have our database setup and have added some data to it, let's make sure our user interface displays it!
+Now that we have our database set up and have added some data to it, let's make sure our user interface displays it!
 
 In your `tasks-get` Azure Function, start by importing the `mongoClient` from the MongoDB library we installed earlier.
 
@@ -655,7 +625,7 @@ Add your connection string to your ```local.settings.json``` file
 ```javascript
 "values": {
   ...
-  "COSMOSDB_CONNECTION_STRING": "<Your-Connection-String",
+  "COSMOSDB_CONNECTION_STRING": "<your_connection_string>",
   ...
 }
 ```
@@ -672,10 +642,10 @@ const client = await mongoClient.connect(process.env.COSMOSDB_CONNECTION_STRING)
 Once you are connected to your Cosmos DB server using the MongoDB API, you can use this connection to select a database.
 
 ```javascript
-const database = client.db("YOUR-DB-NAME");
+const database = client.db("YOUR_DB_NAME");
 ```
 
-Replace `YOUR-DB-NAME` by the name you entered when you created your database.
+Replace `YOUR_DB_NAME` by the name you entered when you created your database.
 
 Then, query the document where the userId property is the same as the userId sent in the headers when your Function is called.
 
